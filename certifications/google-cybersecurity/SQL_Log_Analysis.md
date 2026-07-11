@@ -1,18 +1,16 @@
-# SQL Log Analysis: Security Incident Response & Asset Patching Audit
+# SQL Log Analysis: Finding Security Problems in Login Records
 
-## Project Summary
+## Project description
 
-**Objective:** Conduct a comprehensive database security audit to identify anomalous login patterns, suspicious access windows, unauthorized geographic origins, and vulnerable asset distributions across the corporate infrastructure.
+Imagine you're a security detective looking through your company's login records. Your job is to find unusual activity that might mean someone's password got stolen, or someone is trying to break in. This project walks you through real examples of how to search through login records using SQL (a tool for asking questions about databases) to spot these problems.
 
-**Context:** As a SecOps analyst, this case study demonstrates proficiency in SQL-based threat hunting, leveraging structured query logic to isolate security incidents from enterprise telemetry, prioritize patch deployment, and enforce access control policies.
+By learning these searches, you'll understand how companies actually hunt for security issues—not by reading dry textbooks, but by looking at real data and finding what doesn't belong.
 
 ---
 
-## SQL Queries: Security Audit Functions
+## Retrieve after hours failed login attempts
 
-### 1. After-Hours Failed Login Detection
-
-**Objective:** Isolate failed authentication attempts occurring outside standard business hours (after 18:00) to identify potential brute-force or unauthorized access attempts.
+**What we're looking for:** Someone trying to log in after 6 PM and getting rejected. This is suspicious because it often means either a hacker trying random passwords, or an employee's account that was stolen.
 
 ```sql
 SELECT 
@@ -26,14 +24,13 @@ WHERE login_time > '18:00:00'
 ORDER BY login_attempt_date DESC, login_time DESC;
 ```
 
-**Query Logic:** This query filters the `login_audit_logs` table using two conditional predicates: `login_time > '18:00:00'` selects all entries after 6 PM, and `success = FALSE` isolates only failed authentication attempts. The combination identifies after-hours failed login incidents, a common indicator of credential compromise or unauthorized access attempts. Results are ordered chronologically for incident timeline reconstruction.
+**How it works:** Think of this like setting up two filters. First, we say "show me any login that happened after 6 PM." Then we add another filter: "and it has to be a failed login." By combining these two filters, we catch people (or hackers) trying to get in when the office is closed and their attempts are failing. We sort the results by date so we can see the most recent attempts first.
 
 ---
 
-### 2. Suspicious Login Attempt Windows (Adjacent Date Analysis)
+## Retrieve login attempts on specific dates
 
-
-**Objective:** Identify concentrated login attempts across specific adjacent dates to detect potential credential brute-force campaigns or compromised account access patterns.
+**What we're looking for:** If someone's account gets hacked, they'll often try logging in many times over a few days, especially when they're running automated tools to crack passwords. We want to find days where one person tried logging in way too many times.
 
 ```sql
 SELECT 
@@ -51,13 +48,13 @@ HAVING COUNT(login_attempt_date) > 5
 ORDER BY attempt_count DESC;
 ```
 
-**Query Logic:** The OR operator chains multiple date predicates, capturing login activity across three adjacent dates. The `GROUP BY` and `HAVING COUNT(...) > 5` clause identifies employees with abnormally high login attempt frequency—a signature of brute-force attacks or account compromise. This temporal windowing technique reveals attack campaigns that span multiple calendar days.
+**How it works:** Here we're looking at three specific days in a row (July 15, 16, and 17). We use "OR" to say "I want all logins from any of these three days." Then we count how many times each person tried to log in on each day. Finally, we only show the results if someone tried more than 5 times—that's our alert level for "this looks suspicious." We sort by the highest count first so the worst offenders appear at the top.
 
 ---
 
-### 3. Malicious Traffic Filtering by Geographic Origin
+## Retrieve login attempts outside of Mexico
 
-**Objective:** Exclude login attempts originating from outside authorized geographic regions, identifying and isolating traffic from suspicious international sources.
+**What we're looking for:** If all your employees work in Mexico, but someone's logging in from Russia, that's a red flag. This query helps us spot logins coming from unexpected countries.
 
 ```sql
 SELECT 
@@ -67,18 +64,18 @@ SELECT
     country_origin,
     login_status
 FROM login_audit_logs
-WHERE NOT country_origin LIKE 'US%'
+WHERE NOT country_origin LIKE 'MEX%'
   AND NOT country_origin LIKE 'CA%'
 ORDER BY login_time DESC;
 ```
 
-**Query Logic:** The NOT operator combined with LIKE wildcards (`LIKE 'US%'` and `LIKE 'CA%'`) inverts the matching logic to exclude authorized geographic regions (US and Canada). Any login attempt not matching these patterns is flagged as originating from outside the trusted geographic boundary, indicating potential threat actor infrastructure or compromised credentials accessed from unauthorized locations.
+**How it works:** We want to exclude logins from Mexico and Canada (our trusted regions), and show everything else. So we set up a filter that says "show me any login where the country does NOT start with 'MEX' and does NOT start with 'CA'." The "NOT" flips our logic around—instead of looking for Mexico, we're looking for everyone *except* Mexico. Any logins that show up in these results are from outside our safe zone and need investigation.
 
 ---
 
-### 4. Department-Based Asset Segmentation for Patch Deployment
+## Retrieve employees in Marketing
 
-**Objective:** Segment corporate workstations by department and building sector to coordinate targeted security patch deployment across infrastructure zones.
+**What we're looking for:** If a security issue happens, we might need to focus on specific departments first. Maybe Marketing workstations need an urgent security update. This query pulls all the devices in that department so we know what to fix.
 
 ```sql
 SELECT 
@@ -94,13 +91,13 @@ WHERE department = 'Engineering'
 ORDER BY last_patch_date ASC;
 ```
 
-**Query Logic:** The AND operator enforces dual filtering: `department = 'Engineering'` selects only the target department, while `building_location LIKE 'East-%'` uses a wildcard to match all eastern building sectors (East-1, East-2, etc.). This combination isolates a specific infrastructure zone, enabling security teams to prioritize patch deployment schedules by geographic and organizational boundaries.
+**How it works:** We're looking for computers in the Engineering department *and* computers in the east wing of the building (anything that starts with "East-"). By combining these two conditions with "AND," we narrow down to just the devices in that specific area. We sort by when they were last updated, so we can see which ones need patching first.
 
 ---
 
-### 5. Multi-Department Asset Identification
+## Retrieve employees in Finance or Sales
 
-**Objective:** Query assets spanning multiple distinct departments to identify shared infrastructure, cross-functional systems, or misconfigured asset assignments requiring security review.
+**What we're looking for:** Sometimes we need to look at multiple departments at once. Maybe Finance and Sales both use the same network printer or server, and we need to know all the devices in those departments for a security check.
 
 ```sql
 SELECT 
@@ -116,13 +113,13 @@ WHERE department = 'Finance'
 ORDER BY department, asset_hostname;
 ```
 
-**Query Logic:** Multiple OR operators create a logical union across three distinct departments, returning all assets belonging to Finance, Engineering, or Operations. This query pattern is essential for identifying cross-functional shared resources and ensuring access controls are appropriately configured for multi-department asset sharing scenarios.
+**How it works:** We use "OR" to ask for devices from three departments: Finance, Engineering, or Operations. Think of it like saying "give me Finance computers, OR Engineering computers, OR Operations computers." We get a combined list of everything from all three departments, then sort it by department name so it's easy to read.
 
 ---
 
-### 6. Global Accounts Excluding Pre-Patched Departments
+## Retrieve all employees not in IT
 
-**Objective:** Query all active corporate accounts while excluding a pre-patched department from the result set, ensuring patch deployment validation across the remaining infrastructure.
+**What we're looking for:** If IT just finished patching all their systems, we want to focus on everyone else next. This query gets a list of all active employees *except* those in the IT department.
 
 ```sql
 SELECT 
@@ -137,18 +134,22 @@ WHERE account_status = 'ACTIVE'
 ORDER BY last_access_time DESC;
 ```
 
-**Query Logic:** The NOT operator inverts the department equality check, excluding the InfoSec department (assumed pre-patched) from the result set. By combining `account_status = 'ACTIVE'` with the negation, this query returns all active accounts outside the pre-patched zone, enabling targeted deployment workflows and post-patch validation audits for the remaining infrastructure cohorts.
+**How it works:** We start by asking for all active employee accounts. Then we add a "NOT" to exclude the IT/InfoSec department. The "NOT" inverts our filter—instead of looking for IT, we're looking for everyone except IT. This is really useful when you're rolling out updates in stages and you've already handled one group.
 
 ---
 
-## Security Implications & Incident Response Workflow
+## Summary
 
-1. **After-Hours Detection** identifies potential insider threats or compromised credentials used during non-standard operational windows.
-2. **Temporal Analysis** reveals attack campaigns with concentrated attempt density, enabling rapid threat actor attribution.
-3. **Geographic Filtering** enforces Zero Trust network controls, flagging unauthorized origin vectors.
-4. **Asset Segmentation** enables risk-based patching prioritization tied to infrastructure criticality and department sensitivity.
-5. **Multi-Department Queries** support compliance audits and cross-functional access review cycles.
-6. **Global Exclusion Patterns** validate patch deployment efficacy and enable staged rollout strategies.
+These queries show how security teams really hunt for problems. We're not guessing—we're asking specific questions:
+
+- **Is someone trying to log in at weird hours?** (After-hours logins)
+- **Is one account being attacked over and over?** (Spike in attempts)
+- **Are logins coming from the wrong countries?** (Geographic anomalies)
+- **Which devices need updates in this group?** (Department-based targeting)
+- **What do multiple departments have in common?** (Cross-department queries)
+- **What's everyone doing except this one group?** (Exclusion patterns)
+
+By writing these searches and looking at the results, you learn to think like a security analyst. You stop just reading reports and start asking the database the questions that actually matter.
 
 ---
 
