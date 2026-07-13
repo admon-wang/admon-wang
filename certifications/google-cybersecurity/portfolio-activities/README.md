@@ -1,29 +1,19 @@
 # Portfolio Activities - Google Cybersecurity Professional
 
-## Project Submissions
+## Technical Artifacts
 
-This folder contains all portfolio activities and hands-on projects completed during the Google Cybersecurity Professional Certificate program.
+This folder contains the core portfolio projects completed during the Google Cybersecurity Professional Certificate program.
 
-### Technical Artifacts
+### 1. **[SQL Log Analysis](../SQL_Log_Analysis.md)** 
+A practical case study demonstrating SQL-based threat hunting and incident response. This project shows how to query login records and asset databases to identify suspicious activity patterns, including after-hours failed login attempts, concentrated brute-force campaigns, unauthorized geographic access, and department-based asset segmentation for security patching.
 
-1. **[SQL_Log_Analysis.md](../SQL_Log_Analysis.md)** — Production-ready SecOps database audit with six structured SQL queries for incident response, threat detection, asset vulnerability tracking, and patch deployment coordination.
+**Skills demonstrated:** Database queries, threat detection, log analysis, incident response procedures, security operations
 
-2. **[Automated_Access_Control.py](../Automated_Access_Control.py)** — Python-based IAM automation script implementing Zero Trust access control, dynamic permission revocation, and Principle of Least Privilege enforcement.
+### 2. **[Automated Access Control](../Automated_Access_Control.md)**
+A Python automation project that implements Identity & Access Management (IAM) controls. This script automates the removal of unauthorized IP addresses from network allow lists, demonstrating how to parse files, process data structures, and enforce the Principle of Least Privilege through programmatic access control.
 
-### Additional Project Templates
-
-3. **[Project 1: Security Audit](./project-1-security-audit.md)** (Coming Soon)
-   - Description: Conducted a security audit of an organization
-   - Skills: Risk assessment, security controls, compliance
-
-4. **[Project 2: Network Incident Analysis](./project-2-network-incident.md)** (Coming Soon)
-   - Description: Analyzed network traffic and detected security incidents
-   - Skills: Packet analysis, threat detection, incident response
-
-5. **[Project 3: Linux System Administration](./project-3-linux-admin.md)** (Coming Soon)
-   - Description: Managed Linux systems and implemented security hardening
-   - Skills: Linux commands, user management, file permissions
+**Skills demonstrated:** Python automation, file handling, data processing, access control policies, security automation, operational efficiency
 
 ---
 
-*Last Updated: 2026-07-11*
+*Portfolio Activities Updated: 2026-07-13*
