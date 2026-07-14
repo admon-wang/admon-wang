@@ -8,8 +8,6 @@ This folder contains the following portfolio projects demonstrating practical cy
 
 - **[Automated_Access_Control.md](./Automated_Access_Control.md)** — A Python automation project demonstrating how to manage network access by automatically removing unauthorized IP addresses from allow lists, enforcing the Principle of Least Privilege.
 
-- **[portfolio-activities/](./portfolio-activities/)** — Supporting documentation and detailed breakdowns of each technical artifact.
-
 ## What You'll Find Here
 
 Rather than theoretical concepts, this directory focuses on **practical, real-world security operations**. These projects demonstrate how to:

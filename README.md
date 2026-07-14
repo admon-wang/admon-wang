@@ -5,7 +5,7 @@
 
 <h2>📺 Certifications:</h2>
 
-- 🔐 [Google Cybersecurity Professional](./certifications/google-cybersecurity/) - [View Portfolio](./certifications/google-cybersecurity/portfolio-activities/)
+- 🔐 [Google Cybersecurity Professional](./certifications/google-cybersecurity/)
 
 <h2>🤳 Connect with me:</h2>
 
