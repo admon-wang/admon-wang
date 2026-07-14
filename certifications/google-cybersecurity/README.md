@@ -2,16 +2,25 @@
 
 ## Directory Manifest
 
-This folder contains the following production-ready security engineering assets:
+This folder contains the following portfolio projects demonstrating practical cybersecurity skills:
 
-- **SQL_Log_Analysis.md** — Complete SecOps database audit case study with structured SQL queries for incident response, threat detection, and asset vulnerability tracking across enterprise login and network telemetry.
-- **Automated_Access_Control.py** — Python-based Identity & Access Management (IAM) automation script implementing Principle of Least Privilege through dynamic access control list (ACL) enforcement and unauthorized identity removal.
-- **portfolio-activities/** — Additional hands-on project documentation and security implementations.
+- **[SQL_Log_Analysis.md](./SQL_Log_Analysis.md)** — A practical case study showing how to hunt for security threats using SQL queries on login records and asset databases. Learn to spot suspicious login patterns, brute-force attempts, and identify devices needing security updates.
 
-## Strategic Focus Rationale
+- **[Automated_Access_Control.md](./Automated_Access_Control.md)** — A Python automation project demonstrating how to manage network access by automatically removing unauthorized IP addresses from allow lists, enforcing the Principle of Least Privilege.
 
-This directory isolates actionable engineering assets that directly apply production security mechanics—specifically database log analytics for threat hunting and programmatic access control enforcement. Rather than summarizing conceptual coursework, these artifacts demonstrate functional security operations workflows: parsing and filtering suspicious activity patterns from enterprise logs, and automating identity revocation to enforce Zero Trust access models. Each asset is designed for immediate deployment in operational security environments.
+- **[portfolio-activities/](./portfolio-activities/)** — Supporting documentation and detailed breakdowns of each technical artifact.
+
+## What You'll Find Here
+
+Rather than theoretical concepts, this directory focuses on **practical, real-world security operations**. These projects demonstrate how to:
+
+- Query databases to find security incidents and anomalies
+- Automate access control enforcement to keep networks secure
+- Think like a security analyst by asking the right questions of your data
+- Apply automation to reduce manual work and human error
+
+Each artifact includes step-by-step explanations written for anyone to understand, regardless of technical background.
 
 ---
 
-*Last Updated: 2026-07-11*
+*Last Updated: 2026-07-14*
