@@ -1,5 +1,7 @@
 # Google Cybersecurity Certificate: Technical Portfolio
 
+![Google Cybersecurity Certificate](./Google-cybersecurity-certificate.png)
+
 This directory holds the hands-on projects I built while completing the Google Cybersecurity Professional Certificate. 
 
 Instead of writing out high-level conceptual notes or textbook definitions, I chose to focus entirely on documenting actionable, production-ready engineering assets. Prioritizing database log auditing through SQL and access automation with Python shows functional operational skills and real engineering workflows over passive text memorization.
