@@ -2,7 +2,7 @@
 
 ## Project description
 
-I work as a security analyst, and one of my regular jobs is keeping our network safe by managing who gets to access sensitive company data. We maintain a file called an "allow list"—it's basically a list of IP addresses (computer locations) that are allowed to connect to our restricted systems. The problem is that when employees leave, contractors finish their projects, or security incidents happen, we need to remove certain IP addresses from that list. Instead of doing this manually every single time, I created a Python script that automates this entire process. The script reads the allow list file, finds the IP addresses that shouldn't have access anymore, removes them automatically, and then updates the file. This saves time, reduces human error, and keeps our network security up to date.
+Imagine I work as a security analyst, and one of my regular jobs is keeping our network safe by managing who gets to access sensitive company data. We maintain a file called an "allow list"—it's basically a list of IP addresses (computer locations) that are allowed to connect to our restricted systems. The problem is that when employees leave, contractors finish their projects, or security incidents happen, we need to remove certain IP addresses from that list. Instead of doing this manually every single time, I created a Python script that automates this entire process. The script reads the allow list file, finds the IP addresses that shouldn't have access anymore, removes them automatically, and then updates the file. This saves time, reduces human error, and keeps our network security up to date.
 
 ---
 
