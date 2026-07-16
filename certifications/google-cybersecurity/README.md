@@ -1,18 +1,17 @@
-# Google Cybersecurity Professional Certificate: Technical Artifacts
+## Technical Artifacts
 
-## Directory Manifest
+This folder contains the core portfolio projects completed during the Google Cybersecurity Professional Certificate program.
 
-This folder contains the following production-ready security engineering assets:
+### 1. **[SQL Log Analysis](../SQL_Log_Analysis.md)** 
+A practical case study demonstrating SQL-based threat hunting and incident response. This project shows how to query login records and asset databases to identify suspicious activity patterns, including after-hours failed login attempts, concentrated brute-force campaigns, unauthorized geographic access, and department-based asset segmentation for security patching.
 
-- **SQL_Log_Analysis.md** — Complete SecOps database audit case study with structured SQL queries for incident response, threat detection, and asset vulnerability tracking across enterprise login and network telemetry.
-- **Automated_Access_Control.py** — Python-based Identity & Access Management (IAM) automation script implementing Principle of Least Privilege through dynamic access control list (ACL) enforcement and unauthorized identity removal.
-- **portfolio-activities/** — Additional hands-on project documentation and security implementations.
+**Skills demonstrated:** Database queries, threat detection, log analysis, incident response procedures, security operations
 
-## Repository Scope & Methodology
-This folder functions as a targeted technical archive for my completion of the Google Cybersecurity Professional Certificate.
+### 2. **[Automated Access Control](../Automated_Access_Control.md)**
+A Python automation project that implements Identity & Access Management (IAM) controls. This script automates the removal of unauthorized IP addresses from network allow lists, demonstrating how to parse files, process data structures, and enforce the Principle of Least Privilege through programmatic access control.
 
-Rather than maintaining administrative notes on foundational theory or elementary definitions, this repository is strictly optimized to host production-ready technical artifacts. Documentation is selectively focused on hands-on infrastructure tasks—specifically automated access control via Python and database security auditing via SQL. This approach aligns directly with engineering best practices by prioritizing operational capability, data filtering efficiency, and structural Identity & Access Management (IAM) foundations over conceptual summaries.
+**Skills demonstrated:** Python automation, file handling, data processing, access control policies, security automation, operational efficiency
 
 ---
 
-*Last Updated: 2026-07-11*
+*Portfolio Activities Updated: 2026-07-13*
