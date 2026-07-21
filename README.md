@@ -13,8 +13,8 @@ I’m a Computer Science student (graduating April 2027) with a strong academic 
 ## 🚀 Featured Projects
 
 ### 🛡️ Cybersecurity & Defensive Analysis
-* **[SQL Log Analysis](https://github.com/admon-wang/cybersecurity-certifications/blob/main/google-cybersecurity/sql_log_analysis.md)** — Filtered, queried, and analyzed security database log histories using SQL to detect unauthorized access attempts and system anomalies.
-* **[Automated Access Control](https://github.com/admon-wang/cybersecurity-certifications/blob/main/google-cybersecurity/automated_access_control.md)** — Formulated access control policies and configured automated file permission filters (`chmod`/Linux) enforcing the principle of least privilege.
+* **[SQL Log Analysis](https://github.com/admon-wang/admon-wang/blob/main/certifications/google-cybersecurity/SQL_Log_Analysis.md)** — Filtered, queried, and analyzed security database log histories using SQL to detect unauthorized access attempts and system anomalies.
+* **[Automated Access Control](https://github.com/admon-wang/admon-wang/blob/main/certifications/google-cybersecurity/Automated_Access_Control.md)** — Formulated access control policies and configured automated file permission filters (`chmod`/Linux) enforcing the principle of least privilege.
 
 ### ⚙️ Software Engineering & Secure Input Validation
 * **[Smart Farm Environmental Analytics (Java)](https://github.com/admon-wang/smart-farm-analytics-java)** — A package-free Java application that parses CSV feeds, enforces strict input boundaries using custom checked exceptions (`SensorDataException`), and computes multi-zone averages via a pluggable Interface strategy pattern.
