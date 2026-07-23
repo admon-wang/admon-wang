@@ -23,9 +23,4 @@ I’m a Computer Science student (graduating April 2027) with a strong academic 
 ### 🤖 Automation & Workflow Tooling
 * **[AI-Driven Freight Logistics Pipeline](#)** — An automated workflow leveraging Claude, Hermes LLM, and a Telegram API verification bot to parse logistical emails, validate data fields, and update Google Spreadsheets securely.
 
----
 
-## 📈 GitHub Overview
-
-![Admon's GitHub Stats](https://github-readme-stats.vercel.app/api?username=admon-wang&show_icons=true&theme=radial)
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=admon-wang&layout=compact&theme=radial)
