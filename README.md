@@ -21,6 +21,6 @@ I’m a Computer Science student (graduating April 2027) with a strong academic 
 * **[Pure Python Data Analytics Engine](https://github.com/admon-wang/gamesales-analytics-engine-python)** — An object-oriented Python analytics tool built without external libraries (NumPy/Pandas) that features encapsulated data structures, custom matrix matching, and error-logging pipelines.
 
 ### 🤖 Automation & Workflow Tooling
-* **[AI-Driven Freight Logistics Pipeline](#)** — An automated workflow leveraging Claude, Hermes LLM, and a Telegram API verification bot to parse logistical emails, validate data fields, and update Google Spreadsheets securely.
+* **[AI-Driven Freight Logistics Pipeline (In Progress)](#)** — An automated workflow leveraging Claude, Hermes LLM, and a Telegram API verification bot to parse logistical emails, validate data fields, and update Google Spreadsheets securely.
 
 
