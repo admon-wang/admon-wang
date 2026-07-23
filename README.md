@@ -1,6 +1,6 @@
 # Hi there, I'm Admon 👋
 
-**Cybersecurity Student @ University of Wollongong | Aspiring Security & Automation Engineer**
+**Cybersecurity Student @ University of Wollongong | Aspiring Cyber Security Intern**
 
 I’m a Computer Science student (graduating April 2027) with a strong academic background (**Distinction WAM: 75.07**) and hands-on experience in software quality assurance, workflow automation, and defensive security.
 
